@@ -76,5 +76,5 @@ Rails.application.configure do
   
   config.hosts.clear
   config.active_job.queue_adapter = :inline
-  gem 'kaminari','~> 1.2.1'
+  
 end
