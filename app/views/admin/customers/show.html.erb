@@ -1,1 +1,91 @@
-<h2>adminのshow</h2>
+<div class="container mt-3">
+  <div class="row">
+    <h4 class="text-black">
+      <%= @customer.last_name %> <%= @customer.first_name %>さんの会員詳細
+    </h4>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>会員ID</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.id %>
+    </div>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>氏名</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.last_name %> <%= @customer.first_name %>
+    </div>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>フリガナ</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+    </div>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>郵便番号</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.postal_code %>
+    </div>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>住所</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.address %>
+    </div>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>電話番号</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.telephone_number %>
+    </div>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>メールアドレス</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.email %>
+    </div>
+  </div>
+
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <span>会員ステータス</span>
+    </div>
+    <div class="col-sm-7">
+      <%= @customer.is_active %>
+      <%#= f.radio_button :is_active, true %>
+      <%#= f.label :"販売中" , class: "col-form-label" %>
+      <%#= f.radio_button :is_active, false %>
+      <%#= f.label :"売り切れ中" , class: "col-form-label" %>
+    </div>
+  </div>
+
+  <!--edit,order履歴ボタン-->
+  <div class="text-center mb-5">
+  <%= link_to "編集する", edit_admin_customer_path(@customer.id),class: "btn btn-success" %>
+  <%= link_to "注文履歴一覧を見る",class: "btn btn-success" %>
+   <!--edit_admin_customer_path(@customer.id),-->
+  </div>
+
+</div>
