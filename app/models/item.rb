@@ -3,6 +3,13 @@ class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy 
   has_many :order_details, dependent: :destroy
   
+  with_options presence: true do
+    validates :name
+    validates :introduction
+    validates :price
+    validates :is_active
+  end
+  
   has_one_attached :item_image
   
   def get_item_image
