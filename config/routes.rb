@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get "/about" => "public/homes#about"
 
   #public/customersコントローラ
-  get "/customers/my_page" => "public/customers#show", as: "customer/show"
+  get '/customers/my_page', to: 'public/customers#show', as: 'customers_my_page'
   get "/customers/information/edit" => "public/customers#edit", as: "customer/edit"
   patch "/customers/information" => "public/customers#update", as: "customer/update"
   get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "customer/unsubscribe"

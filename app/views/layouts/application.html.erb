@@ -48,7 +48,7 @@
                 <% elsif customer_signed_in? %>
               <!--Customerがログイン状態に表示-->
                   <li class="nav-item">
-                    <%= link_to customer_show_path, class:'nav-link text-light' do %>
+                    <%= link_to customers_my_page_path, class:'nav-link text-light' do %>
                        マイページ
                     <% end %>
                   </li>
