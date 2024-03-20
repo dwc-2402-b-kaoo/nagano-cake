@@ -1,8 +1,8 @@
 class Admin::ItemsController < ApplicationController
 
 # 商品一覧画面用
-   def index
-    @items = Item.page(params[:page])
+  def index
+    @items = Item.page(params[:page]).order(created_at: :desc)
   end
 
 # 商品登録ページ用
@@ -17,6 +17,11 @@ class Admin::ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+# 商品詳細画面用
+  def show
+    @item = Item.find(params[:id])
   end
 
   private
