@@ -91,5 +91,14 @@
 #   Item.create!(item.merge(id: index + 1))
 # end
 
-Customer.create(last_name: '田中',first_name:'太郎',last_name_kana:'タナカ',first_name_kana:'タロウ',postal_code: '1111111',telephone_number: '2222222',address: '東京都',is_active: true,email: '1@1', password: 'aaaaaa')
-Customer.create(last_name: '堀江',first_name:'文子',last_name_kana:'ホリエ',first_name_kana:'フミコ',postal_code: '1111111',telephone_number: '3333333',address: '岩手県',is_active: true,email: '2@2', password: 'aaaaaa')
+# Customer.create(last_name: '田中',first_name:'太郎',last_name_kana:'タナカ',first_name_kana:'タロウ',postal_code: '1111111',telephone_number: '2222222',address: '東京都',is_active: true,email: '1@1', password: 'aaaaaa')
+# Customer.create(last_name: '堀江',first_name:'文子',last_name_kana:'ホリエ',first_name_kana:'フミコ',postal_code: '1111111',telephone_number: '3333333',address: '岩手県',is_active: true,email: '2@2', password: 'aaaaaa')
+Customer.create(last_name: '藤本',first_name:'陽一',last_name_kana:'フジモト',first_name_kana:'ヨウイチ',postal_code: '1111111',telephone_number: '2224444',address: '沖縄県',is_active: true,email: '3@3', password: 'aaaaaa')
+Customer.create(last_name: '西本',first_name:'君枝',last_name_kana:'ニシモト',first_name_kana:'キミエ',postal_code: '1111111',telephone_number: '4443333',address: '青森県',is_active: true,email: '4@4', password: 'aaaaaa')
+Customer.create(last_name: '和田',first_name:'俊二',last_name_kana:'ワダ',first_name_kana:'シュンジ',postal_code: '1111111',telephone_number: '2224554',address: '宮崎県',is_active: true,email: '5@5', password: 'aaaaaa')
+Customer.create(last_name: '秋山',first_name:'忠彦',last_name_kana:'アキヤマ',first_name_kana:'タダヒコ',postal_code: '1111111',telephone_number: '4456553',address: '鹿児島県',is_active: true,email: '6@6', password: 'aaaaaa')
+Customer.create(last_name: '齋藤',first_name:'細美',last_name_kana:'サイトウ',first_name_kana:'ホソミ',postal_code: '1111111',telephone_number: '2227744',address: '栃木県',is_active: true,email: '7@7', password: 'aaaaaa')
+Customer.create(last_name: '黒山',first_name:'和樹',last_name_kana:'クロヤマ',first_name_kana:'カズキ',postal_code: '1111111',telephone_number: '4943383',address: '宮城県',is_active: true,email: '8@8', password: 'aaaaaa')
+Customer.create(last_name: '渡',first_name:'由美',last_name_kana:'ワタリ',first_name_kana:'ユミ',postal_code: '1111111',telephone_number: '2227654',address: '山口県',is_active: true,email: '9@9', password: 'aaaaaa')
+Customer.create(last_name: '戸田',first_name:'和子',last_name_kana:'トダ',first_name_kana:'カズコ',postal_code: '1111111',telephone_number: '4156453',address: '熊本県',is_active: true,email: '10@10', password: 'aaaaaa')
+Customer.create(last_name: '豊橋',first_name:'豊美',last_name_kana:'トヨハシ',first_name_kana:'トヨミ',postal_code: '1111111',telephone_number: '4122453',address: '広島県',is_active: true,email: '11@11', password: 'aaaaaa')
