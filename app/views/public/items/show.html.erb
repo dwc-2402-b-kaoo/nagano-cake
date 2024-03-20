@@ -10,10 +10,10 @@
         <p class="text-success">販売中</p>
         <h3>¥ <%= @item.with_tax_price.to_s(:dalimited) %> (税込)<h3>
         <%= form_with(model: @cart_item, local: true, class: "form-inline") do |f| %>
-        <%= f.hidden_field :item_id, value: @item.id %>
-        <%= f.number_field :amount, placeholder: "個数を選択", class: "form-control mr-2" %>
-        <%= f.submit "カートに入れる", class: "btn btn-success" %>
-<% end %>
+        　　　　<%= f.hidden_field :item_id, value: @item.id %>
+       　　 　　<%= f.number_field :amount, placeholder: "個数を選択", class: "form-control mr-2" %>
+       　　　 <%= f.submit "カートに入れる", class: "btn btn-success" %>
+　　　　　　　　　　　　　　　<% end %>
       <% else %>
         <h3 class="text-danger">販売停止中です</h3>
       <% end %>
