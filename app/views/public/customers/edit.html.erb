@@ -2,7 +2,7 @@
   <h4 class="text-black">会員情報編集</h4>
 </div>
 
-    <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
+    <%= form_with model: @customer, url: customers_information_path(@customer), method: :patch do |f| %>
       <%#= render 'layouts/errors', obj: @user %>
       <div class="field">
         <%= f.label :姓 %><br />
