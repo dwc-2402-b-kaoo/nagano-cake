@@ -1,0 +1,88 @@
+<div class="container mt-3">
+  <div class="row">
+    <h4 class="text-black">商品編集</h4>
+  </div>
+
+  <!--エラーメッセージ削除するかも-->
+  <% if @item.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= form_with model:@item, url: admin_item_path(@item), local:true do |f| %>
+
+  <!--商品画像登録-->
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <%= f.label :"商品画像" , class: "col-form-label" %>
+    </div>
+    <div class="col-sm-7">
+      <%= f.file_field :item_image, placeholder: "商品画像", accept: "image/*" %>
+    </div>
+  </div>
+
+  <!--商品名登録-->
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <%= f.label :"商品名" , class: "col-form-label" %>
+    </div>
+    <div class="col-sm-7">
+      <%= f.text_field :name, placeholder: "商品名", class: "form-control name" %>
+    </div>
+  </div>
+
+  <!--商品説明登録-->
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <%= f.label :"商品説明" , class: "col-form-label" %>
+    </div>
+    <div class="col-sm-7">
+      <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class:"form-control introduction" %>
+    </div>
+  </div>
+
+  <!--ジャンル選択-->
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <%= f.label :"ジャンル" , class: "col-form-label" %>
+    </div>
+    <div class="col-sm-7">
+      <%= f.collection_select :genre_id, Genre.all, :id,:name,{prompt: "--選択してください--"} %>
+    </div>
+  </div>
+
+  <!--税込価格-->
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <%= f.label :"税込価格" , class: "col-form-label" %>
+    </div>
+    <div class="col-sm-7">
+      <%= f.text_field :price, placeholder: "1000", class:"col-xs-2" %>
+    </div>
+  </div>
+
+  <!--販売ステータス-->
+  <div class="row form-group justify-content-center">
+    <div class="col-sm-3">
+      <%= f.label :"販売ステータス" , class: "col-form-label" %>
+    </div>
+    <div class="col-sm-7">
+      <%= f.radio_button :is_active, true %>
+      <%= f.label :"販売中" , class: "col-form-label" %>
+      <%= f.radio_button :is_active, false %>
+      <%= f.label :"売り切れ中" , class: "col-form-label" %>
+    </div>
+  </div>
+
+  <!--登録ボタン-->
+  <div class="text-center mb-5">
+    <%= f.submit "変更を保存", class: "btn btn-success" %>
+  </div>
+
+  <% end %>
+</div>
