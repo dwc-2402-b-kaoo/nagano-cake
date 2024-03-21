@@ -5,12 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 # Admin.create!(
-
-#     email: 'k@k',
-#     password: '123123'
-# )
-
 #     email: 'k@k',
 #     password: '123123'
 # )
@@ -95,3 +91,5 @@
 #   Item.create!(item.merge(id: index + 1))
 # end
 
+Customer.create(last_name: '田中',first_name:'太郎',last_name_kana:'タナカ',first_name_kana:'タロウ',postal_code: '1111111',telephone_number: '2222222',address: '東京都',is_active: true,email: '1@1', password: 'aaaaaa')
+Customer.create(last_name: '堀江',first_name:'文子',last_name_kana:'ホリエ',first_name_kana:'フミコ',postal_code: '1111111',telephone_number: '3333333',address: '岩手県',is_active: true,email: '2@2', password: 'aaaaaa')
