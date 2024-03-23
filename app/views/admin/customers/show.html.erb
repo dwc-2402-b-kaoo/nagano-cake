@@ -73,19 +73,17 @@
       <span>会員ステータス</span>
     </div>
     <div class="col-sm-7">
-      <%= @customer.is_active %>
-      <%#= f.radio_button :is_active, true %>
-      <%#= f.label :"販売中" , class: "col-form-label" %>
-      <%#= f.radio_button :is_active, false %>
-      <%#= f.label :"売り切れ中" , class: "col-form-label" %>
+      <% if @customer.is_active == true %>
+        <span class="text-success font-weight-bold align-middle">有効</span>
+      <% else %>
+        <span class="text-secondary font-weight-bold align-middle">退会</span>
+      <% end %>
     </div>
   </div>
 
-  <!--edit,order履歴ボタン-->
   <div class="text-center mb-5">
   <%= link_to "編集する", edit_admin_customer_path(@customer.id),class: "btn btn-success" %>
-  <%= link_to "注文履歴一覧を見る",class: "btn btn-success" %>
-   <!--edit_admin_customer_path(@customer.id),-->
+  <%= link_to "注文履歴一覧を見る", admin_root_path,class: "btn btn-primary" %>
   </div>
 
 </div>
