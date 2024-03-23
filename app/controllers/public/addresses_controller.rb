@@ -11,7 +11,7 @@ class Public::AddressesController < ApplicationController
     if @address.save # アドレスが保存された場合
       redirect_to addresses_path, notice: "アドレスが作成されました" # アドレス一覧ページにリダイレクト
     else
-      @addresses = Address.new # 新しいアドレスを作成
+      @address = Address.new # 新しいアドレスを作成
       render :index # indexページを再表示
     end
   end
