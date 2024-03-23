@@ -19,7 +19,7 @@
             <h3>¥ <%= @item.with_tax_price.to_s(:dalimited) %> (税込)</h3>
             <%= form_with(model: @cart_item, local: true, class: "form-inline") do |f| %>
               <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.number_field :amount, placeholder: "個数を選択", class: "form-control mr-2" %>
+              <%= f.select :amount,[1,2,3,4,5,6,7,8,9,10],{include_blank: '個数選択'},required:true, class: "form-control mr-3"%>
               <%= f.submit "カートに入れる", class: "btn btn-success" %>
             <% end %>
           <% else %>
