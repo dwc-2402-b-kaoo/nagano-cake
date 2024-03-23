@@ -1,6 +1,16 @@
-<h3>注文情報入力</h3>
-<strong>支払方法</strong>
-クレジットカード
-銀行振込
-<strong>お届け先</strong>
-<%= link_to "確認画面へ進む", order_confirm_path, class:"btn btn-primary" %>
+<div class="container">
+  <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
+    <h4 class="text-black">注文情報入力</h4>
+  </div>
+  
+  <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
+    <h5>支払方法</h5>
+    クレジットカード
+    銀行振込
+    <strong>お届け先</strong>
+  </div>
+  
+  <div class="row my-3 col-sm-10 px-sm-0 mx-auto">
+    <%= link_to "確認画面へ進む", order_confirm_path, class:"btn btn-primary mx-auto" %>
+  </div>
+</div>
