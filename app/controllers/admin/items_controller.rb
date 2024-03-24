@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+before_action :authenticate_admin!
 
 # 商品一覧画面用
   def index
@@ -13,8 +14,10 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      flash[:notice] = "商品を追加しました。"
       redirect_to admin_items_path
     else
+      flash.now[:notice] = "商品の追加に失敗しました。"
       render :new
     end
   end
@@ -32,8 +35,10 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
+      flash[:notice] = "商品を編集しました。"
       redirect_to admin_item_path(@item.id)
     else
+      flash.now[:notice] = "商品の編集に失敗しました。"
       render :edit
     end
   end
@@ -43,5 +48,4 @@ class Admin::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:item_image, :name, :introduction, :genre_id, :price, :is_active)
   end
-
 end

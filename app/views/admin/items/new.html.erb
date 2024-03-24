@@ -3,16 +3,22 @@
     <h4 class="text-black">商品新規登録</h4>
   </div>
 
-  <!--エラーメッセージ削除するかも-->
-  <% if @item.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
-    <ul>
+<!--商品追加失敗フラッシュメッセージ-->
+  <% if flash[:notice].present? && flash[:notice] == "商品の追加に失敗しました。" %>
+    <div class="mt-3">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+  <div>  
+    <% if @item.errors.any? %>
+      <%= @item.errors.count %>件のエラーが発生しました。
+      <ul>
       <% @item.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </div>
-  <% end %>
 
   <%= form_with model:@item, url: admin_items_path, local:true do |f| %>
 
