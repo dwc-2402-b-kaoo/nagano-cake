@@ -2,7 +2,31 @@
   <div class="row">
       <h4 class="text-black">ジャンル一覧・追加</h4>
   </div>
-  
+
+<!--ジャンル追加成功・失敗フラッシュメッセージ-->
+  <% if flash[:notice].present? && flash[:notice] == "ジャンルを追加しました。" %>
+    <div class="mt-3">
+      <%= flash[:notice] %>
+    </div>
+  <% elsif flash[:error].present? && flash[:error] == "ジャンルの追加に失敗しました。" %>
+    <div class="mt-3">
+      <%= flash[:error] %>
+  <% elsif flash[:update].present? && flash[:update] == "ジャンルを更新しました。" %>
+  <div class="mt-3">
+    <%= flash[:update] %>
+  </div>
+  <% end %>
+  <div>  
+    <% if @genre.errors.any? %>
+      <%= @genre.errors.count %>件のエラーが発生しました。
+      <ul>
+      <% @genre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+
 <!--ジャンル追加ボックス-->
   <div class="row form-group justify-content-center">
     <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
@@ -27,7 +51,7 @@
         <thead class="table-secondary">
           <tr>
             <th>ジャンル</th>
-            <th colspan="1"></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -41,5 +65,4 @@
       </table>
     </div>
   </div>
-
 </div>
