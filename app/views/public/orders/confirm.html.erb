@@ -50,7 +50,10 @@
   <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
     <div class="col">
       <h5>支払方法</h5>
+      <p><%= @payment_method %><br><br>
       <h5>お届け先</h5>
+      <p>〒<%= session[:order]["postal_code"] %> <%= session[:order]["address"] %></p>
+    　<p><%= session[:order]["name"] %></p>
     </div>
   </div>
   

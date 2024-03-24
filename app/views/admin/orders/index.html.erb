@@ -1,28 +1,27 @@
+<!-- 管理人側 -->
+<!-- end -->
+
 <div class="container">
   <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
     <h4 class="text-black">注文履歴一覧</h4>
   </div>
   
-  <% if current_customer.orders.present? %>
+  <% if @orders.present? %>
     <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
       <table class="table text-center">
         <thead class="table-secondary">
-          <th>注文日</th>
-          <th>配送先</th>
-          <th>注文商品</th>
-          <th>支払金額</th>
-          <th>ステータス</th>
-          <th>注文詳細</th>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
         </thead>
         <tbody>
           <% @orders.each do |order| %>
             <tr>
-              <td><%= order.created_at %></td>
-              <td><%= order.adresss %></td>
-              <td><%= order.item.name %></td>
-              <td>aaa</td>
-              <td><%= order. %></td>
-              <td><%= link_to "表示する", order_path(order.id), class:"btn btn-primary" %></td>
+              <td><%= link_to order.created_at, admin_order_path(order) %></td>
+              <td><%= order.customer.name %></td>
+              <td><%= order.cart_items.sum(:amount) %><td>
+              <td><%= order.order_details.status %></td>
             </tr>
           <% end %>
         </tbody>

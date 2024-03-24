@@ -1,1 +1,59 @@
-管理人用order/show
+<!-- 管理人側 -->
+<!-- end -->
+<div class="container">
+  <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
+    <h4 class="text-black">注文履歴詳細</h4>
+  </div>
+  
+  <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
+    <div class= "col-3">購入者</div><br>
+    <div class= "col-3">注文日</div><br>
+    <div class= "col-3">配達先</div><br>
+    <div class= "col-3">支払方法</div><br>
+    <div class= "col-3">注文ステータス</div><br>
+  </div>
+  
+  <table class="table text-center">
+    <thead class="table-secondary">
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>製作ステータス</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <%= form_with model: order, url: admin_order_path(order.id), local: true, method: :patch do |f| %>
+            <div class="form-group">
+              <div class="btn-toolbar">
+                <%= f.select :status,[0,1,2,3,4], required:true, class: "form-control mr-3", style: "width:100px;" %>
+                <%= f.submit "更新",class: "btn btn-success" %>
+              </div>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="table text-center">
+    <tr>
+      <th class="table-secondary">商品合計</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th class="table-secondary">送料</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th class="table-secondary">請求金額合計</th>
+      <td></td> 
+    </tr>
+  </table>
+  <%= paginate @orders %>
+</div>
