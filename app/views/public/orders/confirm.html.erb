@@ -2,7 +2,7 @@
   <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
     <h4 class="text-black">注文情報確認</h4>
   </div>
-  
+
   <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
     <table class="table text-center col-md-7">
       <thead class="table-secondary">
@@ -25,11 +25,11 @@
         <% end %>
       </tbody>
     </table>
-  
+
     <table class="table text-center col-md-3 offset-1">
       <tr>
         <th class="table-secondary">送料</th>
-        <td>800</td>
+        <td><%= @shipping_cost %></td>
       </tr>
       <tr>
         <th class="table-secondary">商品合計</th>
@@ -42,22 +42,30 @@
       </tr>
       <tr>
         <th class="table-secondary">請求合計</th>
-        <td><%= @total + 800 %></td>
+        <td><%= @total + @shipping_cost %></td>
       </tr>
     </table>
   </div>
-      
+
   <div class="row mt-3 col-sm-10 px-sm-0 mx-auto">
     <div class="col">
       <h5>支払方法</h5>
       <p><%= @payment_method %><br><br>
       <h5>お届け先</h5>
-      <p>〒<%= session[:order]["postal_code"] %> <%= session[:order]["address"] %></p>
-    　<p><%= session[:order]["name"] %></p>
+      <p>〒<%= session[:order][:postal_code] %> <%= session[:order][:address] %><br>
+      <%= session[:order][:name] %></p>
     </div>
   </div>
-  
+
   <div class="row my-3 col-sm-10 px-sm-0 mx-auto">
-    <%= link_to "注文を確定する", order_thanks_path, class:"btn btn-success mx-auto" %>
+    <%= form_with(model: @order, local: true, url: orders_path, method: :post) do |f| %>
+      <%= f.hidden_field :postal_code, :value => session[:order][:postal_code] %>
+      <%= f.hidden_field :address, :value => session[:order][:address]%>
+      <%= f.hidden_field :name, :value => session[:order][:name]%>
+      <%= f.hidden_field :shipping_cost, :value => @shipping_cost%>
+      <%= f.hidden_field :total_payment, :value => @total + @shipping_cost %>
+      <%= f.hidden_field :payment_method, :value => session[:order][:payment_method] %>
+      <%= f.submit "注文を確定する", class:"btn btn-success mx-auto" %>
+    <% end %>
   </div>
 </div>
