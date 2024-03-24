@@ -12,6 +12,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
+      flash[:notice] = "Successfully updated."
       redirect_to customers_my_page_path(@customer)
     else
       render "edit"
@@ -22,6 +23,11 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
+    @customer = Customer.find(current_customer.id)
+    @customer.update(is_active: false)
+    reset_session
+    # flash[:notice] = "退会しました。"
+    redirect_to root_path
   end
 
   private

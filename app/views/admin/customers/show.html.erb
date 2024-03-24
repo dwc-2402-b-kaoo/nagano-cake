@@ -1,4 +1,8 @@
-<div class="container mt-3">
+<!--<%# if flash[:notice] %>-->
+<!--  <div class="alert alert-success"><%#= notice %></div>-->
+<!--<%# end %>-->
+
+<div class="container mt-3 ms-5">
   <div class="row">
     <h4 class="text-black">
       <%= @customer.last_name %> <%= @customer.first_name %>さんの会員詳細
@@ -81,9 +85,13 @@
     </div>
   </div>
 
-  <div class="text-center mb-5">
-  <%= link_to "編集する", edit_admin_customer_path(@customer.id),class: "btn btn-success" %>
-  <%= link_to "注文履歴一覧を見る", admin_root_path,class: "btn btn-primary" %>
+  <div class="row text-center mb-5 ms-10">
+    <div class = "offset-1 text-center">
+      <%= link_to "編集する", edit_admin_customer_path(@customer.id),class: "mx-3 mb-5 btn btn-success" %>
+    </div>
+    <div class = "text-center">
+      <%= link_to "注文履歴一覧を見る", admin_root_path,class: "mx-3 mb-5 btn btn-primary" %>
+    </div>
   </div>
 
 </div>
