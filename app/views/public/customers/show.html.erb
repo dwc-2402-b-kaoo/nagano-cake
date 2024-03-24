@@ -1,78 +1,78 @@
-<% if flash[:notice] %>
-  <div class="alert alert-success"><%= notice %></div>
-<% end %>
-
 <div class="container mt-3">
   <div class="row">
     <h4 class="text-black">マイページ</h4>
   </div>
   
-  <div class="text-left mb-5">
-    <h4 class="text-black">登録情報</h4>
-    <%= link_to "編集する", customer_edit_path,class: "btn btn-success" %>
-  </div>
-
-  <div class="row form-group justify-content-center">
-    <div class="col-sm-3">
-      <span>氏名</span>
+  <div class="row">
+    <div class="col-2 mt-1 pl-5 mb-2">
+      <h4 class="font-weight-bold">登録情報</h4>
     </div>
-    <div class="col-sm-7">
-      <%= @customer.last_name %> <%= @customer.first_name %>
+    <div>
+      <%= link_to "編集する", customer_edit_path,class: "btn btn-success" %>
     </div>
   </div>
 
-  <div class="row form-group justify-content-center">
-    <div class="col-sm-3">
-      <span>フリガナ</span>
-    </div>
-    <div class="col-sm-7">
-      <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
-    </div>
+  <div class="row">
+    <table class="table table-bordered mt-1 mx-5 col-6">
+      <tr>
+        <td class="title-color col-4">氏名</td>
+        <td>
+          <%= @customer.last_name %> <%= @customer.first_name %>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="title-color col-4">カナ</td>
+        <td>
+          <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="title-color col-4">郵便番号</td>
+        <td>
+          <%= @customer.postal_code %>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="title-color col-4">住所</td>
+        <td>
+          <%= @customer.address %>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="title-color col-4">電話番号</td>
+        <td>
+          <%= @customer.telephone_number %>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="title-color col-4">メールアドレス</td>
+        <td>
+          <%= @customer.email %>
+        </td>
+      </tr>
+    </table>
   </div>
-
-  <div class="row form-group justify-content-center">
-    <div class="col-sm-3">
-      <span>郵便番号</span>
+  
+  <div class="row">
+    <div class="col-2 mt-1 pl-5 mb-2">
+      <h4 class="font-weight-bold">配送先</h4>
     </div>
-    <div class="col-sm-7">
-      <%= @customer.postal_code %>
-    </div>
-  </div>
-
-  <div class="row form-group justify-content-center">
-    <div class="col-sm-3">
-      <span>住所</span>
-    </div>
-    <div class="col-sm-7">
-      <%= @customer.address %>
-    </div>
-  </div>
-
-  <div class="row form-group justify-content-center">
-    <div class="col-sm-3">
-      <span>電話番号</span>
-    </div>
-    <div class="col-sm-7">
-      <%= @customer.telephone_number %>
-    </div>
-  </div>
-
-  <div class="row form-group justify-content-center">
-    <div class="col-sm-3">
-      <span>メールアドレス</span>
-    </div>
-    <div class="col-sm-7">
-      <%= @customer.email %>
+    <div>
+      <%= link_to "一覧を見る", addresses_path,class: "btn btn-primary" %>
     </div>
   </div>
   
-  <div class="text-left mb-5">
-    <h4 class="text-black">配送先</h4>
-    <%= link_to "一覧を見る", addresses_path,class: "btn btn-success" %>
-  </div>
-  
-  <div class="text-left mb-5">
-    <h4 class="text-black">注文履歴</h4>
-    <%= link_to "一覧を見る", orders_path,class: "btn btn-primary" %>
+  <div class="row">
+    <div class="col-2 mt-1 pl-5 mb-2">
+      <h4 class="font-weight-bold">注文履歴</h4>
+    </div>
+    <div>
+      <%= link_to "一覧を見る", orders_path,class: "btn btn-primary" %>
+    </div>
   </div>
 </div>
