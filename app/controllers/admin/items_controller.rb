@@ -15,9 +15,9 @@ before_action :authenticate_admin!
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "商品を追加しました。"
-      redirect_to admin_items_path
+      redirect_to admin_item_path(@item.id)
     else
-      flash.now[:notice] = "商品の追加に失敗しました。"
+      flash.now[:notice] = "入力内容を確認してください。"
       render :new
     end
   end
@@ -38,7 +38,7 @@ before_action :authenticate_admin!
       flash[:notice] = "商品を編集しました。"
       redirect_to admin_item_path(@item.id)
     else
-      flash.now[:notice] = "商品の編集に失敗しました。"
+      flash.now[:notice] = "編集内容を確認してください。"
       render :edit
     end
   end

@@ -13,7 +13,7 @@ before_action :authenticate_admin!
       flash[:notice] = "ジャンルを追加しました。"
       redirect_to admin_genres_path
     else
-      flash.now[:error] = "ジャンルの追加に失敗しました。"
+      flash.now[:error] = "入力内容を確認してください。"
       @genres = Genre.all
       render :index
     end  
@@ -30,7 +30,7 @@ before_action :authenticate_admin!
       flash[:update] = "ジャンルを更新しました。"
       redirect_to admin_genres_path
     else
-      flash.now[:notice] = "ジャンルの更新に失敗しました。"
+      flash.now[:notice] = "編集内容を確認してください。"
       render :edit
     end
   end
