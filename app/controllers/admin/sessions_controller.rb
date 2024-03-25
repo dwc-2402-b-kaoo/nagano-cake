@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class Admin::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+  # before_action :configure_sign_out_params, only: [:destroy]
+  # before_action :configure_sign_out_params, if: :devise_controller?
+  
+
 
   # GET /resource/sign_in
   # def new
