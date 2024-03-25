@@ -1,6 +1,8 @@
-<!--<%# if flash[:notice] %>-->
-<!--  <div class="alert alert-success"><%#= notice %></div>-->
-<!--<%# end %>-->
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
 <div class="container mt-3 ms-5">
   <div class="row">
