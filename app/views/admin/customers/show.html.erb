@@ -1,4 +1,4 @@
-<% if flash[:notice] %>
+<% if flash[:notice].present? && flash[:notice] == "会員情報の編集に成功しました" %>
   <div class="alert alert-success">
     <%= flash[:notice] %>
   </div>
