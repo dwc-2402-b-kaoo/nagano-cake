@@ -15,6 +15,7 @@ class Public::CustomersController < ApplicationController
       flash[:notice] = "Successfully updated."
       redirect_to customers_my_page_path(@customer)
     else
+      flash.now[:alert] = "必要な情報を入力してください"
       render "edit"
     end
   end
@@ -26,7 +27,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(current_customer.id)
     @customer.update(is_active: false)
     reset_session
-    # flash[:notice] = "退会しました。"
+    flash[:notice] = "退会しました。"
     redirect_to root_path
   end
 
