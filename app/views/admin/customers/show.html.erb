@@ -9,7 +9,7 @@
     </h4>
   </div>
 
-  <div class="row form-group justify-content-center">
+  <div class="row form-group justify-content-center mt-5">
     <div class="col-sm-3">
       <span>会員ID</span>
     </div>
@@ -73,7 +73,7 @@
   </div>
 
   <div class="row form-group justify-content-center">
-    <div class="col-sm-3">
+    <div class="col-sm-3 mb-3">
       <span>会員ステータス</span>
     </div>
     <div class="col-sm-7">
@@ -87,9 +87,9 @@
 
   <div class="row text-center mb-5 ms-10">
     <div class = "offset-1 text-center">
-      <%= link_to "編集する", edit_admin_customer_path(@customer.id),class: "mx-3 mb-5 btn btn-success" %>
+      <%= link_to "編集する", edit_admin_customer_path(@customer.id),class: "ml-3 mb-5 mr-0 btn btn-success" %>
     </div>
-    <div class = "text-center">
+    <div class = "offset-1 text-center">
       <%= link_to "注文履歴一覧を見る", admin_root_path,class: "mx-3 mb-5 btn btn-primary" %>
     </div>
   </div>
