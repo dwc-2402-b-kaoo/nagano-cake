@@ -1,57 +1,66 @@
-<!--インデント未完成-->
-<div class="container mt-5 mb-5"> <!-- コンテナ開始 -->
-  <div class="row shipping-new"> <!-- 新しい行 -->
-    <div class="col-sm-10 px-sm-0 offset-sm-1">
-      <h2>配送先登録/一覧</h2> <!-- タイトル -->
+<div class="container mt-3">
+  <div class="row"><!-- 新しい行 -->
+      <h2 class="text-black p-2" style="text-decoration: underline; text-decoration-color: #996600;">配送先登録/一覧</h2> <!-- タイトル -->
     </div>
-  </div>
-  <div class="row"> <!-- 新しい行 -->
-    <div class="col-sm-10 px-sm-0 mx-auto">
-      <%= form_with model: @address, url: addresses_path, local:true do |f| %> <!-- アドレスの新規登録フォーム -->
-      <table>
-        <tr>
-          <div calss="form-group">
-            <%= f.label :postal_code, "郵便番号（ハイフンなし）" %> <!-- 郵便番号ラベル -->
-            <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "0000000" %> <!-- 郵便番号入力 -->
-         </div>
-        </tr>
-        <tr>
-        <div calss="form-group">
-          <%= f.label :"住所" %> <!-- 住所ラベル -->
-          <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0" %> <!-- 住所入力 -->
-        </div>
-        </tr>
-        <tr>
-          <div calss="form-group">
-            <%= f.label :name, "宛名" %> <!-- 宛名ラベル -->
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "令和道子" %><br>
-            <%= f.submit "新規登録", class: "btn btn-info" %> <!-- 新規登録ボタン -->
-          </div>
-        </tr>
-      </table>
-    <% end %>
-    </div>
-  </div>
-  <br>
 
-  <div class="row shipping-lists"> <!-- 配送先リスト -->
-    <div class="col-sm-8 px-sm-0 mx-auto">
-      <table class="table table-bordered"> <!-- テーブル開始 -->
-        <thead class="table-active"> <!-- テーブルヘッダー -->
+    <div class="row mt-3">
+      <div class="col">
+        <%= form_with model: @address, url: addresses_path, local:true do |f| %> <!-- アドレスの新規登録フォーム -->
+        <table class="table table-borderless">
           <tr>
-            <th>郵便番号</th> <!-- 郵便番号ヘッダー -->
-            <th>住所</th> <!-- 住所ヘッダー -->
-            <th>宛先</th> <!-- 宛先ヘッダー -->
+            <div class="field">
+              <th><%= f.label :postal_code, "郵便番号（ハイフンなし）" %> </th><!-- 郵便番号ラベル -->
+              <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "0000000" %></td> <!-- 郵便番号入力 -->
+            </div>
+          </tr>
+
+          <tr>
+            <div class="field">
+              <th><%= f.label :"住所" %> </th><!-- 住所ラベル -->
+              <td><%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "東京都渋谷区代々木神園町0-0", style: "width: 500px;" %></td> <!-- 住所入力 -->
+            </div>
+          </tr>
+
+         <tr>
+            <div>
+              <th><%= f.label :name, "宛名" %></th> <!-- 宛名ラベル -->
+              <td><%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "令和道子" %></td>
+            </div>
+          </tr>
+
+          <tr>
+            <div>
+              <th></th>
+              <td><%= f.submit "新規登録", class: "btn btn-info" %> <!-- 新規登録ボタン -->
+            </div>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+
+
+  <div class="row shipping-lists left-align"> <!-- 配送先リスト -->
+  <div class="col-sm-8 px-sm-0 mx">
+    <table class="table table-bordered">
+      <thead style="background-color: #996600;"> <!-- カスタムテーブルヘッダー -->
+          <tr>
+            <th class="text-center">郵便番号</th> <!-- 郵便番号ヘッダー -->
+            <th class="text-center">住所</th> <!-- 住所ヘッダー -->
+            <th class="text-center">宛先</th> <!-- 宛先ヘッダー -->
             <th colspan="3"></th> <!-- 編集、削除列 -->
           </tr>
-        </thead>
+      </thead>
         <tbody> <!-- テーブルボディ -->
           <% @addresses.each do |address| %> <!-- 各アドレスを繰り返し -->
             <tr>
-              <td><%= address.postal_code %></td> <!-- 郵便番号セル -->
-              <td><%= address.address %></td> <!-- 住所セル -->
-              <td><%= address.name %></td> <!-- 宛先セル -->
-              <td><%= link_to "編集", edit_address_path(address), class: "btn btn-outline-info btn-lg" %><%= link_to "削除", address_path(address), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-outline-info btn-lg" %></td> <!-- 編集、削除ボタン -->
+              <td class="text-center"><%= address.postal_code %></td> <!-- 郵便番号セル -->
+              <td class="text-center"><%= address.address %></td> <!-- 住所セル -->
+              <td class="text-center"><%= address.name %></td> <!-- 宛先セル -->
+              <td class="text-center">
+                <%= link_to "編集", edit_address_path(address), class: "btn btn-outline-primary" %>
+                <%= link_to "削除", address_path(address), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class:"btn btn-outline-danger" %>
+              </td> <!-- 編集、削除ボタン -->
             </tr>
           <% end %>
         </tbody>
