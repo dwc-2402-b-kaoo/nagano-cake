@@ -1,32 +1,40 @@
-<div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-8"> <!-- 幅を広げるためにcol-md-8に変更 -->
-      <h2 class="mb-4 bg-info text-dark p-2 d-inline-block">管理者ログイン</h2><!-- タイトル -->
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form"}) do |f| %> <!-- ログインフォーム -->
-        <div class="form-group row">
-          <label class="col-sm-3 col-form-label">メールアドレス</label> <!-- メールアドレスラベル -->
-          <div class="col-sm-6">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %> <!-- メールアドレス入力 -->
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-3 col-form-label">パスワード</label> <!-- パスワードラベル -->
-          <div class="col-sm-6">
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %> <!-- パスワード入力 -->
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-9 offset-sm-3">
-            <%= f.submit "ログイン", class: "btn btn-outline-info btn-sm" %> <!-- ログインボタン -->
-          </div>
-        </div>
-      <% end %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col">
+      <h2 class="text-black">管理者ログイン</h2>
     </div>
   </div>
-</div>
-<!-- 画面下部に大きな余白を作成 -->
-<div class="container-fluid mt-5" style="height: 30vh;"></div>
 
-<%# end %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form"}) do |f| %>
+    <div class="row mt-4">
+      <div class="col">
+        <table class="table table-borderless">
+          <tr>
+            <th>メールアドレス</th>
+            <td>
+              <div class="col-md-6"> <!-- ここで幅を調整 -->
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>パスワード</th>
+            <td>
+              <div class="col-md-6"> <!-- ここで幅を調整 -->
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><%= f.submit "ログイン", class: "btn btn-outline-info btn-" %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="container-fluid mt-5" style="height: 30vh;"></div>
 
 <%= render "admin/shared/links" %>
