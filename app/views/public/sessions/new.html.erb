@@ -1,25 +1,42 @@
 <!--レイアウト未設定-->
-<div style="margin: 0 auto; width: 50%;">
-  <h3 class="mb-4">ログイン</h3>
-    <h3 class="mb-4">会員の方はこちらからログイン</h3>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@exanple.com" %>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8"> <!-- 幅を広げるためにcol-md-8に変更 -->
+      <h3 class="mb-2 bg-info text-dark p-2 d-inline-block">ログイン</h3>
+    <div class="col-md-8"> <!-- 幅を広げるためにcol-md-8に変更 -->
+      <h3 class="mb-2 bg-info text-dark p-1 d-inline-block">会員の方はこちらからログイン</h3>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+       <div class="form-group row p-4">
+        <label class="col-sm-4 col-form-label">メールアドレス</label> <!-- メールアドレスラベル -->
+        <div class="col-sm-8">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %> <!-- メールアドレス入力 -->
         </div>
-
-        <div class="field">
-          <%= f.label :password, "パスワード" %>
-          <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
-
-        <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-outline-info btn-sm" %>
+        <div class="form-group row p-3">
+          <label class="col-sm-4 col-form-label">パスワード</label> <!-- パスワードラベル -->
+          <div class="col-sm-8">
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %> <!-- パスワード入力 -->
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9 offset-sm-3">
+            <%= f.submit "ログイン", class: "btn btn-outline-info btn-sm" %> <!-- ログインボタン -->
+          </div>
         </div>
       <% end %>
-      <br>
-      <h4>会員登録がお済でない方</h4>
-      <p><%= link_to "こちら", new_customer_registration_path %>&emsp;から新規登録を行ってください。</p>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group row">
+    <div class="col-md-6 text-right">
+        <h4 class="mb-2 bg-info text-dark p-2 d-inline-block">会員登録がお済でない方</h4>
+        <p><%= link_to "こちら", new_customer_registration_path %>&emsp;から新規登録を行ってください。</p>
+    </div>
+</div>
+
+
 </div>
 <!-- 画面下部に大きな余白を作成 -->
 <div class="container-fluid mt-5" style="height: 40vh;"></div>

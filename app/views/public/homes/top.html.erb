@@ -7,13 +7,13 @@
 <div style="background: url('<%= asset_path('top_img.jpg') %>') center center no-repeat; background-size: cover; text-align: center; height: 80vh; position: relative; overflow-x: hidden;">
   <div class='container px-0'>
     <div class='row'>
-      <div class='col-md-3'>
+      <div class='col-md-3 p-4'>
         <!-- ジャンルのサイドバー -->
         <div style="background-color: white;">
           <%= render 'public/items/sidebar', genres: @genres %>
         </div>
       </div>
-      <div class='col-md-8'>
+      <div class='col-md-8 p-4'>
         <div class="container-fluid bg-cover text-white d-flex justify-content-center align-items-center" style="background-image: url('/assets/about_img.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover; text-align: center; height: 40vh;">
           <div class="plate mx-auto mb-5" id="cork">
             <div>
@@ -27,19 +27,24 @@
         <!-- 新着商品 -->
         <div class='row'>
           <div class='col-md-3'>
-            <h3>新着商品</h3>
+            <h3 style="background-color: #800000; color: #ffffff;" >新着商品</h3>
+
           </div>
           <div class="row">
             <% @items.each do |item| %>
               <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card bg-transparent border-0" style="width: 100%;">
                   <%= link_to item_path(item) do %>
-                    <%= image_tag item.get_item_image(50,50), size: "200x200", style: "max-width: 100%;" %>
+                    <div class="border">
+                      <%= image_tag item.get_item_image(50,50), size: "200x200", style: "max-width: 100%;" %>
+                    </div>
                   <% end %>
                   <div class="card-body">
-                    <p class="item-details item-name card-text"><%= item.name %></p>
+                    <p class="item-details item-name card-text" style="color: black; font-size: 25px; font-weight: bold;">
+                      <%= item.name %>
+                    </p>
                     <% if item.is_active == true %>
-                      <p class="item-details card-text">¥ <%= item.with_tax_price.to_s(:delimited) %> (税込)</p>
+                      <p class="item-details card-text" style="color: black; font-size: 25px; font-weight: bold;">¥ <%= item.with_tax_price.to_s(:delimited) %> (税込)</p>
                     <% else %>
                       <p class="text-danger font-weight-bold card-text">販売停止中</p>
                     <% end %>
