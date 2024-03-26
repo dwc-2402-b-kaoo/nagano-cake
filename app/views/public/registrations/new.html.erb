@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="row">
-    <h2 class="text-black">新規会員登録</h2>
+    <h2 class="text-black p-2" style="text-decoration: underline; text-decoration-color: #996600;">新規会員登録</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
   </div>
@@ -103,6 +103,6 @@
     </div>
     </div>
       <br>
-      <h4>既に登録済みの方</h4>
-      <p><%= link_to "こちら", customer_session_path %>&emsp;からログインしてください。</p>
+      <h4 class="text-black" style="text-decoration: underline; text-decoration-color: #996600;">既に登録済みの方</h4>
+      <p class="text-black" style="text-decoration: underline; text-decoration-color: #996600;"><%= link_to "こちら", customer_session_path %>&emsp;からログインしてください。</p>
 </div>
