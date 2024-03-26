@@ -15,8 +15,10 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark", style="background-color: #795548;">
         <div class="container">
-          <a class="navbar-brand" href="/"><b><span><i class="fa-solid fa-cake-candles"></i> ながのCAKE</span></b></a>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div  class="row">
+            <a class="navbar-brand" href="/"><b><span><i class="fa-solid fa-cake-candles"></i> ながのCAKE</span></b></a>
+          </div>
+          <div class="row"></div>
             <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %><!--adminログイン状態に表示-->
               <!--<%#= if request.fullpath.include? "/admin" %>-->
@@ -70,12 +72,6 @@
                       ログアウト
                     <% end %>
                   </li>
-                  <li class="nav-item"><br><br>
-                    <form class="form-inline">
-                      <input class="form-control mr-sm-2" type="search" placeholder="検索" aria-label="Search">
-                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">検索</button>
-                    </form>
-                  </li>
                 <% else %>
               <!--adminでもcustomerでもログインしていない時に表示-->
                 <li class="nav-item">
@@ -99,12 +95,17 @@
                   <% end %>
                 </li>
               <% end %>
+                <div class="nav-item">
+                  <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="検索" aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">検索</button>
+                  </form>
+                </div>
             </ul>
-          </div>
         </div>
       </nav>
     </header>
-    <main>
+    <main class="pt-3 pb-3" style="background-color: #FDF5E6;">
       <%= yield %>
     </main>
     <footer class="text-white pt-1 pb-4", style="background-color: #795548;">

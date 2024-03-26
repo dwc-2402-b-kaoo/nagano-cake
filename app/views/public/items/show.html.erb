@@ -12,7 +12,7 @@
           <%= image_tag @item.get_item_image(50,50), size: "250x250", style: "max-width: 100%;" %>
         </div>
         <div class="col-12 col-sm-6 col-md-6">
-          <h2><strong><%= @item.name %></strong></h2>
+          <h2 class="text-black p-2" style="text-decoration: underline; text-decoration-color: #795548;"><strong><%= @item.name %></strong></h2>
           <p><%= @item.introduction %></p>
           <% if @item.is_active == true %>
             <p class="text-success">販売中</p>

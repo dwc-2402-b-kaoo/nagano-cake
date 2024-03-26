@@ -6,7 +6,7 @@
 
 <div class="container mt-3">
   <div class="row">
-    <h4 class="text-black">会員情報編集</h4>
+    <h4 class="text-black p-2" style="text-decoration: underline; text-decoration-color: #795548;">会員情報編集</h4>
   </div>
 
   <%= form_with model: @customer, url: customers_information_path(@customer), method: :patch do |f| %>
@@ -20,7 +20,7 @@
     <!--    </ul>-->
     <!--  </div>-->
     <!--<%# end %>-->
-    
+
     <div class="row mt-3">
       <div class="col">
         <table class="table table-borderless">
@@ -33,8 +33,8 @@
               </td>
             </div>
           </tr>
-          
-          
+
+
           <tr>
             <div class="field">
               <th><%= f.label :フリガナ %></th>
@@ -58,7 +58,7 @@
             <div class="field">
               <th><%= f.label :住所 %></th>
               <td>
-                <%= f.text_field :address, autofocus: true, autocomplete: "address" %>    
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", style: "width: 500px;" %>
               </td>
             </div>
           </tr>
@@ -80,7 +80,7 @@
               </td>
             </div>
           </tr>
-        
+
           <tr>
             <div>
               <th></th>
@@ -90,10 +90,10 @@
               </td>
             </div>
           </tr>
-          
+
         </table>
       </div>
     </div>
   <% end %>
 </div>
-    
+
